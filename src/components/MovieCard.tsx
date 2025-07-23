@@ -1,4 +1,3 @@
-import React from 'react';
 import { type Pelicula } from '../types';
 
 interface Props {

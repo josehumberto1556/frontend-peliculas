@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
+import { useState, useEffect } from 'react';
 // Interfaz para los detalles de la película (puede ser la misma que Pelicula o más extensa)
 interface PeliculaDetail {
   id: number;
