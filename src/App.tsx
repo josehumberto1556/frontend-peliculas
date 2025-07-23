@@ -10,12 +10,14 @@ function App() {
   const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+ const API_BASE_URL: string = import.meta.env.VITE_APP_API_URL || 'http://localhost:4000';
   // Efecto para cargar las películas cuando el componente se monta
   useEffect(() => {
     setLoading(true);
     setError(null); // Limpiar errores previos
-    fetch('/api/peliculas') // <--- ¡AJUSTA ESTA URL SI TU BACKEND ES DIFERENTE!
+     fetch(`${API_BASE_URL}/peliculas`)
+    //local
+   // fetch('/api/peliculas') // <--- ¡AJUSTA ESTA URL SI TU BACKEND ES DIFERENTE!
       .then(response => {
         if (!response.ok) {
           // Si la respuesta HTTP no es exitosa (ej. 404, 500), lanzamos un error

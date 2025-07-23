@@ -21,12 +21,15 @@ function MovieDetail({ movieId, onClose }: Props) {
   const [movie, setMovie] = useState<PeliculaDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const API_BASE_URL: string = import.meta.env.VITE_APP_API_URL || 'http://localhost:4000';
 
   // Efecto para cargar los detalles de una película específica
   useEffect(() => {
     setLoading(true);
     setError(null); // Limpiar errores previos
-    fetch(`/api/peliculas/${movieId}`) // <--- ¡AJUSTA ESTA URL SI TU BACKEND ES DIFERENTE!
+    fetch(`${API_BASE_URL}/peliculas/${movieId}`)
+    //local
+    // fetch(`/api/peliculas/${movieId}`) // <--- ¡AJUSTA ESTA URL SI TU BACKEND ES DIFERENTE!
       .then(response => {
         if (!response.ok) {
           throw new Error(`Error HTTP! Estado: ${response.status}`);
